@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume and Job Description Matcher</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="input-section" id="input-section">
+            <h1>Resume and Job Description Matcher</h1>
+            
+            <label for="resume">Upload Resume:</label>
+            <input type="file" id="resume" accept=".pdf" />
+
+
+            <label for="job-description">Job Description:</label>
+            <textarea id="job-description" rows="10" placeholder="Paste the job description text here..."></textarea>
+
+            <button id="submit-btn">Match and Analyze</button>
+        </div>
+
+        <div class="result-section" id="result-section" style="display: none;">
+            <div class="resume-display" id="resume-display">
+                <iframe id="pdf-viewer" style="width: 100%; height: 100vh;" frameborder="0"></iframe>
+            </div>
+            <div class="output-display" id="output-display"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
