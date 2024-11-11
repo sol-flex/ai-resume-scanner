@@ -34,8 +34,22 @@ document.getElementById('submit-btn').addEventListener('click', async () => {
 
     const data = await response.json();
     console.log(data);
-    const output = JSON.parse(data.choices[0].message.content); // Adjust according to your API response structure
+    const output = JSON.parse(data.response.choices[0].message.content); // Adjust according to your API response structure
 
+    const blob = new Blob([new Uint8Array(atob(data.file).split("").map(char => char.charCodeAt(0)))], { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
+
+    // Create a temporary URL for the Blob
+    const url = URL.createObjectURL(blob);
+
+    // Set the download link's href
+    const downloadLink = document.getElementById("downloadLink");
+    downloadLink.href = url;
+
+    // Optionally specify a default file name
+    downloadLink.download = "Improved_Resume.docx";  // The name of the file
+
+    // Show the download section
+    document.getElementById("downloadSection").style.display = "block";
 
     const outputDisplay = document.getElementById('output-display');
 

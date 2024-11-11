@@ -1,4 +1,5 @@
 
+
 export function extractTextFromPDF(file) {
     const reader = new FileReader();
     reader.onload = function(event) {
