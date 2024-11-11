@@ -1,5 +1,7 @@
 document.getElementById('submit-btn').addEventListener('click', async () => {
 
+    const PROD_URL = "https://ai-resume-scanner-sae2.onrender.com"
+    const DEV_URL = "http://localhost:3005"
 
     const resume = document.getElementById('resume').files[0];
     const jobDescriptionText = document.getElementById('job-description').value;
@@ -25,7 +27,7 @@ document.getElementById('submit-btn').addEventListener('click', async () => {
     pdfViewer.src = pdfUrl;
 
     // Call the OpenAI API to get the results
-    const response = await fetch('http://localhost:3005/analyze', { // Replace with your backend endpoint
+    const response = await fetch(`${PROD_URL}/analyze`, { // Replace with your backend endpoint
         method: 'POST',
         body: formData
     });
